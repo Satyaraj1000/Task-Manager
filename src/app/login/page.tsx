@@ -1,7 +1,8 @@
 "use client";
 import { LoginForm } from '@/components/auth/LoginForm';
 import { useAuth } from '@/providers/AuthProvider';
-import { useRouter }_next_non_ssr_import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function LoginPage() {
   const { isAuthenticated, loading } = useAuth();
