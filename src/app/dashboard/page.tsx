@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
@@ -10,6 +11,8 @@ import { PlusCircle, RefreshCw } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { TaskFilters, type TaskFiltersType } from '@/components/tasks/TaskFilters';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 import { parseISO } from 'date-fns';
 
 export default function DashboardPage() {
@@ -187,11 +190,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
-// Dummy Card and Header components for Skeleton to work if not globally available
-// These should ideally be imported from ui if they exist and are setup for general use
-const Card = ({ className, children }: {className?: string, children: React.ReactNode}) => <div className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)}>{children}</div>;
-const CardHeader = ({ className, children }: {className?: string, children: React.ReactNode}) => <div className={cn("flex flex-col space-y-1.5 p-6", className)}>{children}</div>;
-const CardContent = ({ className, children }: {className?: string, children: React.ReactNode}) => <div className={cn("p-6 pt-0", className)}>{children}</div>;
-const CardFooter = ({ className, children }: {className?: string, children: React.ReactNode}) => <div className={cn("flex items-center p-6 pt-0", className)}>{children}</div>;
-
